@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+<mapping>
+	<class name="edu.utdesign.rwc.vmsp.esb.PBX">
+	<map-to xml="PBX" />
+	<field name="lastUpdated" type="long">
+		<bind-xml name="timestamp" node="element" />
+	</field>
+	<field name="isOn" type="boolean" get-method="isOn" set-method="setOn">
+		<bind-xml name="isOn" node="element" />
+	</field>
+	<field name="phones" type="edu.utdesign.rwc.vmsp.esb.Phone" collection="set">
+		<bind-xml name="Phone" location="Phones" />
+	</field>
+	<field name="radios" type="edu.utdesign.rwc.vmsp.esb.Radio" collection="set">
+		<bind-xml name="Radio" location="Radios" />
+	</field>
+	</class>
+</mapping>
