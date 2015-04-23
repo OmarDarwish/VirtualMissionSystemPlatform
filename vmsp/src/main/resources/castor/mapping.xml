@@ -3,9 +3,9 @@
                          "http://castor.org/mapping.dtd">
 <mapping>
 	<!-- This is the root mapping file that includes all other mapping files. 
-	Be sure to additional mapping files here -->
+		Be sure to additional mapping files here -->
 	<include href="Phone.mapping.xml" />
 	<include href="Radio.mapping.xml" />
 	<include href="PBX.mapping.xml" />
-	
+
 </mapping>
