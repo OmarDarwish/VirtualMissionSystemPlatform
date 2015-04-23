@@ -8,9 +8,8 @@ public class PbxToBean extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
-		from("netty:tcp://{{netty.host}}:{{netty.port}}")
-			.unmarshal("castor")
-			.to("mock:result");
+		from("netty:tcp://{{netty.host}}:{{netty.port}}?sync=false")
+				.routeId("pbxToBean").unmarshal("castor").to("mock:result");
 	}
 
 }

@@ -6,14 +6,14 @@
 	http://camel.apache.org/schema/spring 
 	http://camel.apache.org/schema/spring/camel-spring.xsd">
 
+	<bean id="properties"
+		class="org.apache.camel.component.properties.PropertiesComponent">
+		<property name="location" value="classpath:vmsp.properties" />
+	</bean>
 	<bean id="pbxToBean" class="edu.utdesign.rwc.vmsp.routes.PbxToBean" />
-	
+
 	<camelContext xmlns="http://camel.apache.org/schema/spring">
-		<propertyPlaceholder id="properties"
-			location="classpath:vmsp.properties" />
-		
 		<routeBuilder ref="pbxToBean" />
-		
 		<dataFormats>
 			<castor mappingFile="castor/mapping.xml" id="castor" />
 		</dataFormats>
