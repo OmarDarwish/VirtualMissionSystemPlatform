@@ -28,29 +28,17 @@ public class PbxRouteTest extends CamelSpringTestSupport {
       return true;
    }
 
-   @Before
-   public void mockEndpoints() throws Exception {
-      context.getRouteDefinition("pbxToBean").adviceWith(context,
-            new AdviceWithRouteBuilder() {
-               @Override
-               public void configure() throws Exception {
-                  mockEndpoints();
-               }
-            });
-   }
-
    @Test
-   public void shouldUnmarshallToSingltonPBX() throws Exception {
-      MockEndpoint result = getMockEndpoint("mock://result");
+   public void shouldUnmarshallToPbx() throws Exception {
+      MockEndpoint result = getMockEndpoint("mock:result");
 
       context.start();
-      result.expectedMessageCount(2);
+      result.expectedMessageCount(1);
 
       File input = new File("data/PBX.xml");
       String content = context.getTypeConverter()
             .convertTo(String.class, input);
       String uri = "netty:tcp://{{netty.host}}:{{netty.port}}?sync=false";
-      template.sendBody(uri, content);
       template.sendBody(uri, content);
       assertMockEndpointsSatisfied();
 
@@ -58,11 +46,6 @@ public class PbxRouteTest extends CamelSpringTestSupport {
       Exchange exchange = result.getReceivedExchanges().get(0);
       Object received1 = exchange.getIn().getBody();
       assertTrue(received1 instanceof PBX);
-
-      // objects should unmarshal to Singleton
-      exchange = result.getReceivedExchanges().get(1);
-      Object received2 = exchange.getIn().getBody();
-      assertTrue(received1 == received2);
       
       context.stop();
    }
