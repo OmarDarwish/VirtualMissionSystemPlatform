@@ -8,9 +8,10 @@
 
 	<bean id="properties"
 		class="org.apache.camel.component.properties.PropertiesComponent">
-		<property name="location" value="classpath:vmsp.properties" />
+		<property name="location" value="classpath:vmsp-esb.properties" />
 	</bean>
 	<bean id="pbxToBean" class="edu.utdesign.rwc.vmsp.routes.PbxToBean" />
+	<bean id="vmspSystem" class="edu.utdesign.rwc.vmsp.esb.VmspSystem" />
 
 	<camelContext xmlns="http://camel.apache.org/schema/spring">
 		<routeBuilder ref="pbxToBean" />

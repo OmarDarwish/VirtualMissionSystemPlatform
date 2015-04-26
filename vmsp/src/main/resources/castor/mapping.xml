@@ -6,6 +6,8 @@
 		Be sure to additional mapping files here -->
 	<include href="Phone.mapping.xml" />
 	<include href="Radio.mapping.xml" />
+	<include href="Channel.mapping.xml" />
 	<include href="PBX.mapping.xml" />
+	<include href="VmspSystem.mapping.xml" />
 
 </mapping>

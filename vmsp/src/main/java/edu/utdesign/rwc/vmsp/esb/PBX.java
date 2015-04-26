@@ -1,27 +1,21 @@
 package edu.utdesign.rwc.vmsp.esb;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
+import java.util.Date;
 import java.util.HashSet;
 
-import org.exolab.castor.mapping.Mapping;
-import org.exolab.castor.mapping.MappingException;
-import org.exolab.castor.xml.Marshaller;
-import org.exolab.castor.xml.Unmarshaller;
-import org.xml.sax.InputSource;
-
 public class PBX {
-   private long lastUpdated;
+   private Date lastUpdated;
    private boolean isOn;
    private HashSet<Phone> phones;
    private HashSet<Radio> radios;
+   private HashSet<Channel> channels;
 
    public PBX() {
-      this.lastUpdated = System.currentTimeMillis() / 1000L;
+      this.lastUpdated = new Date();
       this.isOn = false;
       this.phones = new HashSet<Phone>();
       this.radios = new HashSet<Radio>();
+      this.channels = new HashSet<Channel>();
    }
 
    public PBX(boolean isOn, HashSet<Phone> phones, HashSet<Radio> radios) {
@@ -30,11 +24,19 @@ public class PBX {
       this.radios = radios;
    }
 
-   public long getLastUpdated() {
+   public Date getLastUpdatedDate() {
       return lastUpdated;
    }
 
+   public long getLastUpdated() {
+      return lastUpdated.getTime();
+   }
+
    public void setLastUpdated(long lastUpdated) {
+      this.lastUpdated = new Date(lastUpdated);
+   }
+
+   public void setLastUpdated(Date lastUpdated) {
       this.lastUpdated = lastUpdated;
    }
 
@@ -56,6 +58,14 @@ public class PBX {
 
    public HashSet<Radio> getRadios() {
       return radios;
+   }
+
+   public HashSet<Channel> getChannels() {
+      return channels;
+   }
+
+   public void setChannels(HashSet<Channel> channels) {
+      this.channels = channels;
    }
 
    public void setRadios(HashSet<Radio> radios) {

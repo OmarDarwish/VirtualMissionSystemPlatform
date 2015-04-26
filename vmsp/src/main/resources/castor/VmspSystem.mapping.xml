@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+<mapping>
+	<class name="edu.utdesign.rwc.vmsp.esb.VmspSystem">
+	  <map-to xml="System" />
+	  <field name="lastUpdated" type="long">
+	     <bind-xml name="lastUpdated" node="element"/>
+	  </field>
+	  <field name="pbx" type="edu.utdesign.rwc.vmsp.esb.PBX">
+	     <bind-xml name="PBX" />
+	  </field>
+	  
+	</class>
+</mapping>
