@@ -2,7 +2,7 @@ package edu.utdesign.rwc.vmsp.esb;
 
 import java.util.Date;
 
-public class VmspSystem {
+public class AggregateSystem {
    private PBX pbx;
    private Date lastUpdated;
    

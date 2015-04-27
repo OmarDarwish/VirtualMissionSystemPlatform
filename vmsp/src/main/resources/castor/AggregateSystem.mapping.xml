@@ -2,7 +2,7 @@
 <!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
                          "http://castor.org/mapping.dtd">
 <mapping>
-	<class name="edu.utdesign.rwc.vmsp.esb.VmspSystem">
+	<class name="edu.utdesign.rwc.vmsp.esb.AggregateSystem">
 	  <map-to xml="System" />
 	  <field name="lastUpdated" type="long">
 	     <bind-xml name="lastUpdated" node="element"/>

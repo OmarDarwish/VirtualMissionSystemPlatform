@@ -1,10 +1,9 @@
 package edu.utdesign.rwc.vmsp.esb;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import org.apache.camel.Exchange;
-import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.impl.DefaultExchange;
 import org.apache.camel.test.spring.CamelSpringTestSupport;
 import org.junit.Test;
@@ -13,7 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import edu.utdesign.rwc.vmsp.esb.PBX;
 
-public class PbxRouteTest extends CamelSpringTestSupport {
+public class AggregateSystemTest extends CamelSpringTestSupport {
    @Override
    protected AbstractApplicationContext createApplicationContext() {
       return new ClassPathXmlApplicationContext(new String[] {
@@ -27,24 +26,16 @@ public class PbxRouteTest extends CamelSpringTestSupport {
    }
 
    @Test
-   public void shouldUnmarshallToPbx() throws Exception {
-      MockEndpoint result = getMockEndpoint("mock:result");
-
+   public void shouldUnmarshallToAggregateSystem() throws Exception {
       context.start();
-      result.expectedMessageCount(1);
+      Object result = context
+            .getDataFormats()
+            .get("castor")
+            .getDataFormat()
+            .unmarshal(new DefaultExchange(context),
+                  new FileInputStream(new File("data/AggregateSystem.xml")));
 
-      File input = new File("data/PBX.xml");
-      String content = context.getTypeConverter()
-            .convertTo(String.class, input);
-      String uri = "netty:tcp://{{netty.host}}:{{netty.port}}?sync=false";
-      template.sendBody(uri, content);
-      assertMockEndpointsSatisfied();
-
-      // check unmarshalling
-      Exchange exchange = result.getReceivedExchanges().get(0);
-      Object received1 = exchange.getIn().getBody();
-      assertTrue(received1 instanceof PBX);
-
+      assertTrue(result instanceof AggregateSystem);
       context.stop();
    }
 
@@ -57,12 +48,14 @@ public class PbxRouteTest extends CamelSpringTestSupport {
          pbx.getRadios().add(new Radio(i, true, "Test"));
          pbx.getChannels().add(new Channel(i, "Test", "Test", "Test"));
       }
+      AggregateSystem system = new AggregateSystem();
+      system.setPbx(pbx);
       context
             .getDataFormats()
             .get("castor")
             .getDataFormat()
-            .marshal(new DefaultExchange(context), pbx,
-                  new FileOutputStream(new File("data/PBX.xml")));
+            .marshal(new DefaultExchange(context), system,
+                  new FileOutputStream(new File("data/AggregateSystem.xml")));
       context.stop();
    }
 

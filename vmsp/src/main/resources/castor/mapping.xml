@@ -8,6 +8,6 @@
 	<include href="Radio.mapping.xml" />
 	<include href="Channel.mapping.xml" />
 	<include href="PBX.mapping.xml" />
-	<include href="VmspSystem.mapping.xml" />
+	<include href="AggregateSystem.mapping.xml" />
 
 </mapping>

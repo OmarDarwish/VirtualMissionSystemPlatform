@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PBX>
-    <lastUpdated>1430080905087</lastUpdated>
+    <lastUpdated>1430091233375</lastUpdated>
     <isOn>false</isOn>
     <Phones>
         <Phone>
@@ -38,14 +38,14 @@
     </Radios>
     <Channels>
         <Channel>
-            <channelNum>1</channelNum>
+            <channelNum>2</channelNum>
             <isOn>false</isOn>
             <channelType>Test</channelType>
             <phoneStatus>Test</phoneStatus>
             <radioStatus>Test</radioStatus>
         </Channel>
         <Channel>
-            <channelNum>2</channelNum>
+            <channelNum>1</channelNum>
             <isOn>false</isOn>
             <channelType>Test</channelType>
             <phoneStatus>Test</phoneStatus>

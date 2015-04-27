@@ -11,12 +11,12 @@
 		<property name="location" value="classpath:vmsp-esb.properties" />
 	</bean>
 	<bean id="pbxToBean" class="edu.utdesign.rwc.vmsp.routes.PbxToBean" />
-	<bean id="vmspSystem" class="edu.utdesign.rwc.vmsp.esb.VmspSystem" />
+	<bean id="aggregateSystem" class="edu.utdesign.rwc.vmsp.esb.AggregateSystem" />
 
 	<camelContext xmlns="http://camel.apache.org/schema/spring">
-		<routeBuilder ref="pbxToBean" />
-		<dataFormats>
-			<castor mappingFile="castor/mapping.xml" id="castor" />
-		</dataFormats>
-	</camelContext>
+    <routeBuilder ref="pbxToBean"/>
+    <dataFormats>
+        <castor mappingFile="castor/mapping.xml" id="castor"/>
+    </dataFormats>
+</camelContext>
 </beans>

@@ -6,10 +6,10 @@ import org.apache.camel.Processor;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class PbxProcessor{
-   private VmspSystem system;
+   private AggregateSystem system;
    
    public void processPbx(PBX pbx, CamelContext context){
-      system = context.getRegistry().lookupByNameAndType("vmspSystem", VmspSystem.class);
+      system = context.getRegistry().lookupByNameAndType("aggregateSystem", AggregateSystem.class);
       system.setPbx(pbx);
    }
 
