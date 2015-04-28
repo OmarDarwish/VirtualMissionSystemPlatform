@@ -7,13 +7,13 @@ import org.apache.camel.ProducerTemplate;
 
 public class MessageServerIn implements Runnable {
    
-   private BlockingQueue<GeneralMessage> fromRadio;
+   private BlockingQueue<GeneralMessage> fromInRadio;
    private CamelContext context;
 
    public MessageServerIn(BlockingQueue<GeneralMessage> fromRadio,
          CamelContext context) {
 
-      this.fromRadio = fromRadio;
+      this.fromInRadio = fromRadio;
       this.context = context;
    }
 
@@ -24,7 +24,7 @@ public class MessageServerIn implements Runnable {
       // safe due to BlockingList
       try {
          while (true) {
-            GeneralMessage message = fromRadio.take();
+            GeneralMessage message = fromInRadio.take();
             System.out.println("MessageServerIn packaging InRadio message: "
                   + message.getBody());
             template.sendBody("direct:start", message);

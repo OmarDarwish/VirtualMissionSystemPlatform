@@ -4,10 +4,8 @@
 <mapping>
 	<!-- This is the root mapping file that includes all other mapping files. 
 		Be sure to additional mapping files here -->
-	<include href="Phone.mapping.xml" />
-	<include href="Radio.mapping.xml" />
-	<include href="Channel.mapping.xml" />
-	<include href="PBX.mapping.xml" />
-	<include href="AggregateSystem.mapping.xml" />
-
+	<include href="GeneralMessage.mapping.xml" />
+	<include href="InRadio.mapping.xml" />
+	<include href="OutRadio.mapping.xml" />
+	<include href="MessageServer.mapping.xml" />
 </mapping>
