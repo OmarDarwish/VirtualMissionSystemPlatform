@@ -1,14 +1,11 @@
 package edu.utdesign.rwc.vmsp.esb;
 
 import org.apache.camel.CamelContext;
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class PbxProcessor{
    private AggregateSystem system;
    
-   public void processPbx(PBX pbx, CamelContext context){
+   public synchronized void processPbx(PBX pbx, CamelContext context){
       system = context.getRegistry().lookupByNameAndType("aggregateSystem", AggregateSystem.class);
       system.setPbx(pbx);
    }
