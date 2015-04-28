@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+<mapping>
+	<!-- This is the root mapping file that includes all other mapping files. 
+		Be sure to additional mapping files here -->
+	<include href="Phone.mapping.xml" />
+	<include href="Radio.mapping.xml" />
+	<include href="Channel.mapping.xml" />
+	<include href="PBX.mapping.xml" />
+	<include href="AggregateSystem.mapping.xml" />
+
+</mapping>

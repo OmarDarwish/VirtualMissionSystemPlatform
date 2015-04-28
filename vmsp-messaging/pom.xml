@@ -4,8 +4,8 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.mycompany</groupId>
-  <artifactId>camel-spring</artifactId>
+  <groupId>edu.utdesign.rwc</groupId>
+  <artifactId>vmsp-messaging</artifactId>
   <packaging>jar</packaging>
   <version>1.0.0-SNAPSHOT</version>
 
@@ -126,6 +126,16 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+    	<groupId>org.apache.camel</groupId>
+    	<artifactId>camel-castor</artifactId>
+    	<version>2.12.0</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.apache.activemq</groupId>
+    	<artifactId>activemq-camel</artifactId>
+    	<version>5.11.1</version>
+    </dependency>
   </dependencies>
 
   <build>
