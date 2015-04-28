@@ -25,7 +25,7 @@ public class MessageServerIn implements Runnable {
       try {
          while (true) {
             GeneralMessage message = fromInRadio.take();
-            template.sendBody("direct:start", message);
+            template.sendBody("direct:radioMessageToEsb", message);
          }
       } catch (InterruptedException e) {
          // TODO Auto-generated catch block

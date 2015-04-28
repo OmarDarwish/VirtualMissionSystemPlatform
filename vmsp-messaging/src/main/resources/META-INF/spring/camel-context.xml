@@ -25,17 +25,21 @@
    </bean>
 
    <camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring">
-
-      <dataFormats>
-         <castor mappingFile="castor/mapping.xml" id="castor" />
-      </dataFormats>
-
-      <route id="radioMessageToEsb">
-         <from uri="direct:start" />
-         <marshal ref="castor" />
-         <to uri="activemq:queue:messageToEsb" />
-         <log message="Sent InRadio message to ESB"/>
-      </route>
-   </camelContext>
+    <dataFormats>
+        <castor mappingFile="castor/mapping.xml" id="castor"/>
+    </dataFormats>
+    <route id="radioMessageToEsb">
+        <from uri="direct:radioMessageToEsb"/>
+        <marshal ref="castor"/>
+        <to uri="activemq:queue:messageToEsb"/>
+        <log message="Sent InRadio message to ESB"/>
+    </route>
+    <route id="systemStatusUpdate">
+        <from uri="direct:systemStatusUpdate"/>
+        <marshal ref="castor"/>
+        <to uri="activemq:queue:messageServerStatus"/>
+        <log message="Sent status update"/>
+    </route>
+</camelContext>
 
 </beans>
