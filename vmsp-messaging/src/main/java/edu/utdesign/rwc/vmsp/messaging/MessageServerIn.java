@@ -6,7 +6,7 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.ProducerTemplate;
 
 public class MessageServerIn implements Runnable {
-   
+
    private BlockingQueue<GeneralMessage> fromInRadio;
    private CamelContext context;
 

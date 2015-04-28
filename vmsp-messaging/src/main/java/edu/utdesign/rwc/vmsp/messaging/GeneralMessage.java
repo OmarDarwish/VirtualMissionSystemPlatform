@@ -7,7 +7,7 @@ public class GeneralMessage {
    private String body;
 
    public GeneralMessage() {
-
+      timeStamp = new Date();
    }
 
    public GeneralMessage(String body) {
@@ -25,10 +25,6 @@ public class GeneralMessage {
 
    public void setTimestamp(long epoch) {
       timeStamp = new Date(epoch);
-   }
-
-   public void setTimestamp(Date timeStamp) {
-      this.timeStamp = timeStamp;
    }
 
    public long getTimeStamp() {

@@ -7,5 +7,8 @@
 		<field name="state" type="string">
 			<bind-xml name="state" node="element" />
 		</field>
+		<field name="numMessagesReceived" type="integer">
+			<bind-xml name="messagesReceived" node="element" />
+		</field>
 	</class>
 </mapping>
