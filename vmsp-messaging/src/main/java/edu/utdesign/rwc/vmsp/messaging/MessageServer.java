@@ -21,6 +21,15 @@ public class MessageServer {
       inRadio = new InRadio(fromInRadioQueue);
       Thread inRadioThread = new Thread(inRadio);
       Thread messageServerIn = new Thread(new MessageServerIn(fromInRadioQueue,camelContext));
+      
+      try {
+         camelContext.start();
+         inRadioThread.start();
+         messageServerIn.start();
+      } catch (Exception e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
    }
    
    public InRadio getInRadio(){

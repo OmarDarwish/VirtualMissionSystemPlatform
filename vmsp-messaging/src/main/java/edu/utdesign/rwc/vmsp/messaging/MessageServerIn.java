@@ -25,8 +25,6 @@ public class MessageServerIn implements Runnable {
       try {
          while (true) {
             GeneralMessage message = fromInRadio.take();
-            System.out.println("MessageServerIn packaging InRadio message: "
-                  + message.getBody());
             template.sendBody("direct:start", message);
          }
       } catch (InterruptedException e) {

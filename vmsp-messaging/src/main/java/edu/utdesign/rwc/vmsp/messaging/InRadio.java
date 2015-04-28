@@ -10,7 +10,10 @@ public class InRadio implements Runnable {
    public final String CONNECTED = "InRadio connected.";
 
    public static String state;
-
+   
+   @Deprecated
+   public InRadio(){};
+   
    public InRadio(BlockingQueue<GeneralMessage> inQueue) {
       state = INITIALIZNG;
       System.out.println(state);
