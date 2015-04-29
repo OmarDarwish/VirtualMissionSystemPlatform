@@ -27,27 +27,27 @@
 	<bean id="messageServerOut" class="edu.utdesign.rwc.vmsp.messaging.MessageServerOut" />
 
 	<camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring">
-		<dataFormats>
-			<castor mappingFile="castor/mapping.xml" id="castor" />
-		</dataFormats>
-		<route id="radioMessageToEsb">
-			<from uri="direct:radioMessageToEsb" />
-			<marshal ref="castor" />
-			<to uri="activemq:messageToEsb" />
-			<log message="Sent InRadio message to ESB" />
-		</route>
-		<route id="systemStatusUpdate">
-			<from uri="direct:systemStatusUpdate" />
-			<marshal ref="castor" />
-			<to uri="activemq:messageServerStatus" />
-			<log message="Sent status update" />
-		</route>
-		<route id="messageFromEsbToRadio">
-			<from uri="activemq:messageFromEsbToRadio" />
-			<unmarshal ref="castor" />
-			<to uri="messageServerOut" />
-			<log message="Sent message from ESB to OutRadio" />
-		</route>
-	</camelContext>
+    <dataFormats>
+        <castor mappingFile="castor/mapping.xml" id="castor"/>
+    </dataFormats>
+    <route id="radioMessageToEsb">
+        <from uri="direct:radioMessageToEsb"/>
+        <marshal ref="castor"/>
+        <to uri="activemq:messageToEsb"/>
+        <log message="Sent InRadio message to ESB"/>
+    </route>
+    <route id="systemStatusUpdate">
+        <from uri="direct:systemStatusUpdate"/>
+        <marshal ref="castor"/>
+        <to uri="activemq:messageServerStatus"/>
+        <log message="Sent status update"/>
+    </route>
+    <route id="messageFromEsbToRadio">
+        <from uri="activemq:messageFromEsbToRadio"/>
+        <unmarshal ref="castor"/>
+        <to uri="messageServerOut"/>
+        <log message="Sent message from ESB to OutRadio"/>
+    </route>
+</camelContext>
 
 </beans>
