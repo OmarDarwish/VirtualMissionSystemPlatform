@@ -46,7 +46,8 @@
         <from uri="activemq:messageFromEsbToRadio"/>
         <unmarshal ref="castor"/>
         <to uri="messageServerOut"/>
-        <log message="Sent message from ESB to OutRadio"/>
+        <log message="Sent message from ESB to OutRadio:"/>
+        <log message=" ${body.body}" />
     </route>
 </camelContext>
 
