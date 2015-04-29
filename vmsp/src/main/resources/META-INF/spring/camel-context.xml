@@ -33,7 +33,7 @@
 			<from uri="activemq:{{activemq.in}}" />
 			<unmarshal ref="castor" />
 			<log message="Received message from MessageServer:" />
-			<log message=" ${body.body}"/>
+			<log message=" ${body.body}" />
 			<bean ref="messageServerProcessor" />
 		</route>
 
@@ -47,8 +47,10 @@
 			<from uri="activemq:{{activemq.status}}" />
 			<unmarshal ref="castor" />
 			<log message="Received status from MesseageServer:" />
-         <log message=" InRadio messsages received: ${body.getInRadio.getNumMessagesReceived}" />
-         <log message=" OutRadio messsages sent: ${body.getOutRadio.getNumMessagesSent}" />
+			<log
+				message=" InRadio messsages received: ${body.getInRadio.getNumMessagesReceived}" />
+			<log
+				message=" OutRadio messsages sent: ${body.getOutRadio.getNumMessagesSent}" />
 			<bean ref="messageServerProcessor" />
 		</route>
 
