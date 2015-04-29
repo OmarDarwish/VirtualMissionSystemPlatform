@@ -38,9 +38,10 @@
 		</route>
 
 		<route id="toMessageServer">
-			<from uri="direct:start" />
+			<from uri="direct:toMessageServer" />
 			<marshal ref="castor" />
 			<to uri="activemq:{{activemq.out}}" />
+			<to uri="mock:toMessageServerResult" />
 		</route>
 
 		<route id="messageServerStatus">
