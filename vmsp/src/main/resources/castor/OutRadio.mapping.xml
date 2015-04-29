@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+<mapping>
+	<class name="edu.utdesign.rwc.vmsp.messaging.OutRadio">
+		<map-to xml="OutRadio" />
+		<field name="state" type="string">
+			<bind-xml name="state" node="element" />
+		</field>
+		<field name="numMessagesSent" type="integer">
+			<bind-xml name="messagesSent" node="element" />
+		</field>
+	</class>
+</mapping>

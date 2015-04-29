@@ -53,6 +53,16 @@
     	<artifactId>camel-netty</artifactId>
     	<version>2.12.0</version>
     </dependency>
+    <dependency>
+    	<groupId>org.apache.activemq</groupId>
+    	<artifactId>activemq-camel</artifactId>
+    	<version>5.8.0</version>
+    </dependency>
+    <dependency>
+    	<groupId>edu.utdesign.rwc</groupId>
+    	<artifactId>vmsp-messaging</artifactId>
+    	<version>1.0.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
   <repositories>
     <repository>

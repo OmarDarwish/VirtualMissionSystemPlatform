@@ -10,6 +10,8 @@
 	  <field name="pbx" type="edu.utdesign.rwc.vmsp.esb.PBX">
 	     <bind-xml name="PBX" />
 	  </field>
-	  
+	  <field name="messageServer" type="edu.utdesign.rwc.vmsp.messaging.MessageServer">
+	     <bind-xml name="MessageServer" node="element"/>
+	  </field>
 	</class>
 </mapping>

@@ -9,5 +9,9 @@
 	<include href="Channel.mapping.xml" />
 	<include href="PBX.mapping.xml" />
 	<include href="AggregateSystem.mapping.xml" />
+	<include href="GeneralMessage.mapping.xml" />
+   <include href="InRadio.mapping.xml" />
+   <include href="OutRadio.mapping.xml" />
+   <include href="MessageServer.mapping.xml" />
 
 </mapping>
