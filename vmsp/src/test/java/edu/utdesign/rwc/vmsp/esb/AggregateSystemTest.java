@@ -11,6 +11,10 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import edu.utdesign.rwc.vmsp.esb.PBX;
+import edu.utdesign.rwc.vmsp.messaging.GeneralMessage;
+import edu.utdesign.rwc.vmsp.messaging.InRadio;
+import edu.utdesign.rwc.vmsp.messaging.MessageServer;
+import edu.utdesign.rwc.vmsp.messaging.OutRadio;
 
 public class AggregateSystemTest extends CamelSpringTestSupport {
    @Override
@@ -42,14 +46,31 @@ public class AggregateSystemTest extends CamelSpringTestSupport {
    @Test
    public void shouldMarshallToXml() throws Exception {
       context.start();
+      // create a fake PBX
       PBX pbx = new PBX();
       for (int i = 0; i < 3; i++) {
          pbx.getPhones().add(new Phone(i, true, "Test"));
          pbx.getRadios().add(new Radio(i, true, "Test"));
          pbx.getChannels().add(new Channel(i, "Test", "Test", "Test"));
       }
+      // create a fake MessageServer
+      MessageServer ms = new MessageServer();
+      ms.setInRadio(new InRadio());
+      ms.setOutRadio(new OutRadio());
+      
+      // create a fake AggregateSystem
       AggregateSystem system = new AggregateSystem();
       system.setPbx(pbx);
+      system.setMessageServer(ms);
+      
+      // send some artificial messages
+      for (int i = 0; i < 20; i++) {
+         String msg = "Test message " + i;
+         //wait so that messages have different time stamps
+         Thread.sleep(200);
+         system.addMessage(new GeneralMessage(msg));
+      }
+      
       context
             .getDataFormats()
             .get("castor")

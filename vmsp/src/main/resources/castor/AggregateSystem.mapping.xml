@@ -3,15 +3,19 @@
                          "http://castor.org/mapping.dtd">
 <mapping>
 	<class name="edu.utdesign.rwc.vmsp.esb.AggregateSystem">
-	  <map-to xml="System" />
-	  <field name="lastUpdated" type="long">
-	     <bind-xml name="lastUpdated" node="element"/>
-	  </field>
-	  <field name="pbx" type="edu.utdesign.rwc.vmsp.esb.PBX">
-	     <bind-xml name="PBX" />
-	  </field>
-	  <field name="messageServer" type="edu.utdesign.rwc.vmsp.messaging.MessageServer">
-	     <bind-xml name="MessageServer" node="element"/>
-	  </field>
+		<map-to xml="System" />
+		<field name="lastUpdated" type="long">
+			<bind-xml name="lastUpdated" node="element" />
+		</field>
+		<field name="pbx" type="edu.utdesign.rwc.vmsp.esb.PBX">
+			<bind-xml name="PBX" />
+		</field>
+		<field name="messageServer" type="edu.utdesign.rwc.vmsp.messaging.MessageServer">
+			<bind-xml name="MessageServer" node="element" />
+		</field>
+		<field name="messages" type="edu.utdesign.rwc.vmsp.messaging.GeneralMessage"
+			collection="arraylist">
+			<bind-xml name="message" location="messages" />
+		</field>
 	</class>
 </mapping>

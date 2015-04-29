@@ -1,7 +1,7 @@
 package edu.utdesign.rwc.vmsp.esb;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
 
 import edu.utdesign.rwc.vmsp.messaging.GeneralMessage;
 import edu.utdesign.rwc.vmsp.messaging.MessageServer;
@@ -10,10 +10,10 @@ public class AggregateSystem {
    private PBX pbx;
    private MessageServer messageServer;
    private Date lastUpdated;
-   private LinkedList<GeneralMessage> messagesReceived;
+   private ArrayList<GeneralMessage> messagesReceived;
    
    public AggregateSystem(){
-      messagesReceived = new LinkedList<GeneralMessage>();
+      messagesReceived = new ArrayList<GeneralMessage>();
    }
    
    public PBX getPbx() {
@@ -46,7 +46,7 @@ public class AggregateSystem {
       messagesReceived.add(msg);
    }
    
-   public LinkedList<GeneralMessage> getMessages(){
+   public ArrayList<GeneralMessage> getMessages(){
       return messagesReceived;
    }
    
