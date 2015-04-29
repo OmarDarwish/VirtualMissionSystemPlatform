@@ -5,7 +5,7 @@ import java.util.concurrent.BlockingQueue;
 public class OutRadio implements Runnable {
    BlockingQueue<GeneralMessage> outQueue;
    private int numMessagesSent = 0;
-   
+
    public final String INITIALIZNG = "Initializing OutRadio...";
    public final String WARMING_UP = "OutRadio warming up...";
    public final String CONNECTED = "OutRadio connected.";
@@ -16,11 +16,11 @@ public class OutRadio implements Runnable {
    @Deprecated
    public OutRadio() {
    }
-   
-   public OutRadio(BlockingQueue<GeneralMessage> outQueue){
+
+   public OutRadio(BlockingQueue<GeneralMessage> outQueue) {
       this.outQueue = outQueue;
    }
-   
+
    @Override
    public void run() {
       try {
@@ -52,8 +52,12 @@ public class OutRadio implements Runnable {
    public String getState() {
       return state;
    }
-   
-   public int getNumMessagesSent(){
+
+   public void setNumMessagesSent(int num) {
+      numMessagesSent = num;
+   }
+
+   public int getNumMessagesSent() {
       return numMessagesSent;
    }
 

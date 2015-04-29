@@ -56,6 +56,10 @@ public class InRadio implements Runnable {
       return state;
    }
    
+   public void setNumMessagesReceived(int num){
+      numMessagesReceived = num;
+   }
+   
    public int getNumMessagesReceived(){
       return numMessagesReceived;
    }
