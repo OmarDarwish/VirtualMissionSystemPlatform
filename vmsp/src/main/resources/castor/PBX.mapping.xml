@@ -5,7 +5,7 @@
 	<class name="edu.utdesign.rwc.vmsp.esb.PBX">
 		<map-to xml="PBX" />
 		<field name="lastUpdated" type="long">
-			<bind-xml name="lastUpdated" node="element" />
+			<bind-xml name="timestamp" node="element" />
 		</field>
 		<field name="isOn" type="boolean" get-method="isOn" set-method="setOn">
 			<bind-xml name="isOn" node="element" />

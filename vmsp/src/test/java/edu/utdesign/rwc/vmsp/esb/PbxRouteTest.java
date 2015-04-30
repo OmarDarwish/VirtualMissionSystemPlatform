@@ -36,7 +36,7 @@ public class PbxRouteTest extends CamelSpringTestSupport {
       File input = new File("data/PBX.xml");
       String content = context.getTypeConverter()
             .convertTo(String.class, input);
-      String uri = "netty:tcp://{{netty.host}}:{{netty.port}}?sync=false";
+      String uri = "direct:pbxToBean";
       template.sendBody(uri, content);
       assertMockEndpointsSatisfied();
 

@@ -24,43 +24,38 @@
 	<!-- Singleton data beans -->
 	<bean id="aggregateSystem" class="edu.utdesign.rwc.vmsp.esb.AggregateSystem" />
 
-	<camelContext xmlns="http://camel.apache.org/schema/spring">
-		<dataFormats>
-			<castor mappingFile="castor/mapping.xml" id="castor" />
-		</dataFormats>
 
-		<route id="fromMessageServer">
-			<from uri="activemq:{{activemq.in}}" />
-			<unmarshal ref="castor" />
-			<log message="Received message from MessageServer:" />
-			<log message=" ${body.body}" />
-			<bean ref="messageServerProcessor" />
-		</route>
-
-		<route id="toMessageServer">
-			<from uri="direct:toMessageServer" />
-			<marshal ref="castor" />
-			<to uri="activemq:{{activemq.out}}" />
-			<to uri="mock:toMessageServerResult" />
-		</route>
-
-		<route id="messageServerStatus">
-			<from uri="activemq:{{activemq.status}}" />
-			<unmarshal ref="castor" />
-			<log message="Received status from MesseageServer:" />
-			<log
-				message=" InRadio messsages received: ${body.getInRadio.getNumMessagesReceived}" />
-			<log
-				message=" OutRadio messsages sent: ${body.getOutRadio.getNumMessagesSent}" />
-			<bean ref="messageServerProcessor" />
-		</route>
-
-		<route id="pbxToBean">
-			<from uri="netty:tcp://{{netty.host}}:{{netty.port}}?sync=false" />
-			<unmarshal ref="castor" />
-			<log message="Received info from PBX" />
-			<bean ref="pbxProcessor" />
-			<to uri="mock:result" />
-		</route>
-	</camelContext>
+	<camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring">
+    <dataFormats>
+        <castor mappingFile="castor/mapping.xml" id="castor"/>
+    </dataFormats>
+    <route id="fromMessageServer">
+        <from uri="activemq:{{activemq.in}}"/>
+        <unmarshal ref="castor"/>
+        <log message="Received message from MessageServer:"/>
+        <log message=" ${body.body}"/>
+        <bean ref="messageServerProcessor"/>
+    </route>
+    <route id="toMessageServer">
+        <from uri="direct:toMessageServer"/>
+        <marshal ref="castor"/>
+        <to uri="activemq:{{activemq.out}}"/>
+        <to uri="mock:toMessageServerResult"/>
+    </route>
+    <route id="messageServerStatus">
+        <from uri="activemq:{{activemq.status}}"/>
+        <unmarshal ref="castor"/>
+        <log message="Received status from MessageServer:"/>
+        <log message=" InRadio messsages received: ${body.getInRadio.getNumMessagesReceived}"/>
+        <log message=" OutRadio messsages sent: ${body.getOutRadio.getNumMessagesSent}"/>
+        <bean ref="messageServerProcessor"/>
+    </route>
+    <route id="pbxToBean">
+        <from uri="direct:pbxToBean"/>
+        <unmarshal ref="castor"/>
+        <log message="Received update from PBX"/>
+        <bean ref="pbxProcessor"/>
+        <to uri="mock:result"/>
+    </route>
+</camelContext>
 </beans>
