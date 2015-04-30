@@ -1,0 +1,67 @@
+<PBX>
+	<timestamp>1430243033</timestamp>
+	<isOn>true</isOn>
+	<Phones>
+		<Phone>
+			<id>9180</id>
+			<isOn>false</isOn>
+			<status>OFF</status>
+			<channel>No Channel</channel>
+		</Phone>
+		<Phone>
+			<id>8469</id>
+			<isOn>false</isOn>
+			<status>OFF</status>
+			<channel>No Channel</channel>
+		</Phone>
+		<Phone>
+			<id>1163</id>
+			<isOn>false</isOn>
+			<status>OFF</status>
+			<channel>No Channel</channel>
+		</Phone>
+	</Phones>
+	<Radios>
+		<Radio>
+			<id>7438</id>
+			<isOn>false</isOn>
+			<status>OFF</status>
+			<channel>No Channel</channel>
+		</Radio>
+		<Radio>
+			<id>1539</id>
+			<isOn>false</isOn>
+			<status>OFF</status>
+			<channel>No Channel</channel>
+		</Radio>
+		<Radio>
+			<id>8843</id>
+			<isOn>false</isOn>
+			<status>OFF</status>
+			<channel>No Channel</channel>
+		</Radio>
+	</Radios>
+	<Channels>
+		<Channel>
+			<channelNum>0</channelNum>
+			<channelType>HF</channelType>
+			<isOn>false</isOn>
+			<phoneStatus>Not Connected</phoneStatus>
+			<radioStatus>Not Connected</radioStatus>
+		</Channel>
+		<Channel>
+			<channelNum>1</channelNum>
+			<channelType>VHF</channelType>
+			<isOn>false</isOn>
+			<phoneStatus>Not Connected</phoneStatus>
+			<radioStatus>Not Connected</radioStatus>
+		</Channel>
+		<Channel>
+			<channelNum>2</channelNum>
+			<channelType>SAT</channelType>
+			<isOn>false</isOn>
+			<phoneStatus>Not Connected</phoneStatus>
+			<radioStatus>Not Connected</radioStatus>
+		</Channel>
+	</Channels>
+</PBX>
