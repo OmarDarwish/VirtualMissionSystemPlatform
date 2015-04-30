@@ -15,7 +15,7 @@ public class MessageServerProcessor {
       system.setMessageServer(messageServer);
    }
 
-   public void processMessage(GeneralMessage msg, CamelContext context) {
+   public synchronized void processMessage(GeneralMessage msg, CamelContext context) {
       system = context.getRegistry().lookupByNameAndType("aggregateSystem",
             AggregateSystem.class);
       system.addMessage(msg);
