@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PBX>
-    <timestamp>1430360084808</timestamp>
+    <timestamp>1430378717739</timestamp>
     <isOn>false</isOn>
     <Phones>
         <Phone>
@@ -38,13 +38,6 @@
     </Radios>
     <Channels>
         <Channel>
-            <channelNum>1</channelNum>
-            <isOn>false</isOn>
-            <channelType>Test</channelType>
-            <phoneStatus>Test</phoneStatus>
-            <radioStatus>Test</radioStatus>
-        </Channel>
-        <Channel>
             <channelNum>2</channelNum>
             <isOn>false</isOn>
             <channelType>Test</channelType>
@@ -53,6 +46,13 @@
         </Channel>
         <Channel>
             <channelNum>0</channelNum>
+            <isOn>false</isOn>
+            <channelType>Test</channelType>
+            <phoneStatus>Test</phoneStatus>
+            <radioStatus>Test</radioStatus>
+        </Channel>
+        <Channel>
+            <channelNum>1</channelNum>
             <isOn>false</isOn>
             <channelType>Test</channelType>
             <phoneStatus>Test</phoneStatus>
